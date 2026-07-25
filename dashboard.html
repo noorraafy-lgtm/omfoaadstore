@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="لوحة تحكم المنتجات - متجر أم فؤاد">
+  <title>لوحة التحكم - متجر أم فؤاد</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/session.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><a href="index.html" class="logo-link">أم فؤاد</a></div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#products">المتجر</a>
+      <span class="user-email" id="userEmail"></span>
+      <button class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
+    </nav>
+  </header>
+
+  <section class="dashboard">
+    <h2>لوحة تحكم المنتجات</h2>
+    <p class="dashboard-note">هذه نسخة تجريبية محلية: أي إضافة أو تعديل أو حذف هنا يظهر فوراً في صفحة المتجر على نفس المتصفح فقط.</p>
+
+    <!-- نموذج إضافة/تعديل منتج -->
+    <div class="dashboard-form-card">
+      <h3 id="formTitle">إضافة منتج جديد</h3>
+      <form id="productForm" novalidate>
+        <input type="hidden" id="productId" value="">
+
+        <div class="field">
+          <label for="productName">اسم المنتج</label>
+          <input type="text" id="productName" placeholder="مثال: منتج جديد" required>
+          <span class="error" id="productNameError"></span>
+        </div>
+
+        <div class="field">
+          <label for="productPrice">السعر (جنيه)</label>
+          <input type="number" id="productPrice" placeholder="مثال: 25000" min="0" required>
+          <span class="error" id="productPriceError"></span>
+        </div>
+
+        <div class="field">
+          <label for="productImage">رابط صورة المنتج (اختياري)</label>
+          <input type="url" id="productImage" placeholder="https://...">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="productSubmit">إضافة المنتج</button>
+          <button type="button" id="cancelEdit" class="secondary-btn" hidden>إلغاء التعديل</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- قائمة المنتجات -->
+    <div class="dashboard-list">
+      <h3>المنتجات الحالية</h3>
+      <div class="dashboard-table" id="productTable">
+        <!-- يُملأ ديناميكياً عبر dashboard.js -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 جميع الحقوق محفوظة - متجر أم فؤاد</p>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/productStore.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
